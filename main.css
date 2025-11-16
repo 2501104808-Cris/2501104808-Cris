@@ -74,7 +74,7 @@ header nav ul li a.active {
     align-items: center;
     text-align: center;
     padding: 0 20px;
-    background: linear-gradient(to bottom, #0f111a, #1a1c2c);
+    background: linear-gradient(to bottom, #1c275a, #171a32);
 }
 
 #hero h1 {
@@ -109,7 +109,18 @@ header nav ul li a.active {
 #hero .social-icon:hover {
     transform: scale(1.2);
 }
+/* Add this to your main.css file */
 
+.intro-img {
+    max-width: 100%; /* Ensures the image doesn't overflow its container */
+    height: auto;    /* Maintains aspect ratio */
+    width: 600px;    /* Example: Set a specific width. Adjust as needed. */
+    /* OR */
+    /* width: 70%; */  /* Example: Set a percentage width relative to its container. */
+
+    display: block;  /* Helps with centering and layout */
+    margin: 20px auto; /* Adds some space above/below and centers it */
+}
 /* --- Sections --- */
 section {
     padding: 100px 20px 60px;
