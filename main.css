@@ -13,6 +13,14 @@ body {
     line-height: 1.6;
 }
 
+body {
+    background-image: url("background.jpg");
+    background-size: cover;        /* makes image fill the screen */
+    background-position: center;   /* centers the image */
+    background-repeat: no-repeat;  /* prevents repeating */
+    background-attachment: fixed;  /* optional: image stays in place when scrolling */
+}
+
 /* --- Links --- */
 a {
     text-decoration: none;
