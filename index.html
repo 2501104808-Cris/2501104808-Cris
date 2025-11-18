@@ -5,6 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | MyPortfolio</title>
     <link rel="stylesheet" href="main.css">
+    <style>
+        /* Typing effect styles */
+        .typing-text {
+            font-size: 1.2rem;
+            color: #333;
+            white-space: nowrap;
+            border-right: 2px solid #333; /* cursor */
+            overflow: hidden;
+        }
+
+        @keyframes blink-cursor {
+            0% { border-color: transparent; }
+            50% { border-color: #333; }
+            100% { border-color: transparent; }
+        }
+
+        .typing-text {
+            animation: blink-cursor 0.7s infinite;
+        }
+    </style>
 </head>
 <body>
 
@@ -26,7 +46,7 @@
     <section id="hero">
         <img src="profile.jpg.png" alt="Alycakes Profile Picture" class="profile-img">
         <h1>Hi, I'm Cris Harvey!</h1>
-        <p>I am a passionate student developer who loves creating clean, modern, and functional digital experiences. I enjoy turning ideas into reality through web development, design, and coding.</p>
+        <p class="typing-text"></p> <!-- Typing animation tagline -->
 
         <!-- SOCIAL MEDIA -->
         <div>
@@ -86,6 +106,48 @@
     <footer>
         © 2025 MyPortfolio — All Rights Reserved.
     </footer>
+
+   <!-- Typing animation script -->
+    <script>
+    const phrases = [
+        "I am a dedicated student developer.",
+        "I create modern and user-friendly websites.",
+        "I turn ideas into clean and functional designs."
+    ];
+
+    const typingElement = document.querySelector(".typing-text");
+
+    let phraseIndex = 0;
+    let letterIndex = 0;
+    let typingSpeed = 70;
+    let erasingSpeed = 40;
+    let delayBetweenPhrases = 1200;
+
+    function type() {
+        if (letterIndex < phrases[phraseIndex].length) {
+            typingElement.textContent += phrases[phraseIndex].charAt(letterIndex);
+            letterIndex++;
+            setTimeout(type, typingSpeed);
+        } else {
+            setTimeout(erase, delayBetweenPhrases);
+        }
+    }
+
+    function erase() {
+        if (letterIndex > 0) {
+            typingElement.textContent = phrases[phraseIndex].substring(0, letterIndex - 1);
+            letterIndex--;
+            setTimeout(erase, erasingSpeed);
+        } else {
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            setTimeout(type, 300);
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        if (phrases.length) type();
+    });
+    </script>
 
 </body>
 </html>
